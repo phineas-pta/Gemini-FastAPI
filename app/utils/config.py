@@ -40,8 +40,8 @@ class GeminiClientSettings(BaseModel):
     """Credential set for one Gemini client."""
 
     id: str = Field(..., description="Unique identifier for the client")
-    secure_1psid: str = Field(..., description="Gemini Secure 1PSID")
-    secure_1psidts: str = Field(..., description="Gemini Secure 1PSIDTS")
+    secure_1psid: str | None = Field(default=None, description="Gemini Secure 1PSID")
+    secure_1psidts: str | None = Field(default=None, description="Gemini Secure 1PSIDTS")
     proxy: str | None = Field(default=None, description="Proxy URL for this Gemini client")
 
     @field_validator("proxy", mode="before")
